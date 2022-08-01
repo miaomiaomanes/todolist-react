@@ -64,6 +64,7 @@ button {
   border-radius: 5px;
   background-color: #ffeaa7;
 }
+
 button span {
   background: #f1f5f8;
   display: block;
@@ -76,4 +77,12 @@ li {
   text-align: left;
   position: relative;
   padding: 0.5rem;
+}
+
+.delete {
+  background: #f1f5f8;
+  display: block;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 2px solid hsl(198, 1%, 29%);
 }

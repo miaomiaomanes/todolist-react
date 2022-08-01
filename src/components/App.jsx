@@ -4,20 +4,31 @@ import InputArea from "./InputArea";
 
 function App() {
   const [items, setItems] = useState([]);
+  //const [isEditing, setIsEditing] = useState(false);
 
   function addItem(inputText) {
-    setItems(prevItems => {
+    setItems((prevItems) => {
       return [...prevItems, inputText];
     });
   }
 
   function deleteItem(id) {
-    setItems(prevItems => {
+    setItems((prevItems) => {
       return prevItems.filter((item, index) => {
         return index !== id;
       });
     });
   }
+
+  const update = (id, todo) => {
+    const updatedTodos = items.map((item, index) => {
+      if (index === id) {
+        return todo;
+      }
+      return item;
+    });
+    setItems(updatedTodos);
+  };
 
   return (
     <div className="container">
@@ -32,7 +43,8 @@ function App() {
               key={index}
               id={index}
               text={todoItem}
-              onChecked={deleteItem}
+              remove={deleteItem}
+              edit={update}
             />
           ))}
         </ul>
